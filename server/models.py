@@ -64,7 +64,7 @@ class Project(db.Model):
 
     assignments = db.relationship('Assignment', back_populates='project', cascade='all, delete-orphan')
 
-    employees = association_proxy('assignments', 'employee', craetor= lambda employee_obj: )
+    employees = association_proxy('assignments', 'employee', creator= lambda employee_obj: Assignment(employee=employee_obj))
 
     def __repr__(self):
         return f'<Review {self.id}, {self.title}, {self.budget}>'
